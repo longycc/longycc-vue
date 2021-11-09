@@ -1,42 +1,46 @@
 <template>
-  <h1>组件</h1>
-  <h2>name:{{job.type}}</h2>
-  <h2>年龄age:{{job.salary}}</h2>
-  <button @click="changeInf">修改人信息</button>
+  <login msg="Welcome to Your longycc"/>
 </template>
 
 <script>
 import {ref,reactive} from 'vue'
+import login from "./components/Login";
+
 
 export default {
   name: 'App',
+  components: {
+    login
+  },
+  methods: {
+    signUp () {
+    container.classList.add('right-panel-active')
+    },
+    signIn(){
+    container.classList.remove('right-panel-active')
+    }
+  },
   setup(){
-    let name = ref('longy')
-    let age = ref(10)
-    let job = reactive({
-      type:"js",
-      salary:"250"
-    })
-    function changeInf(){
-      job.salary = 8000
+    function signUp () {
+      container.classList.add('right-panel-active')
+    }
+    function signIn(){
+      container.classList.remove('right-panel-active')
     }
     return {
-      name,
-      age,
-      changeInf,
-      job,
+      signUp,
+      signIn
     }
   }
 }
 </script>
 
 <style>
-/*#app {*/
-/*  font-family: Avenir, Helvetica, Arial, sans-serif;*/
-/*  -webkit-font-smoothing: antialiased;*/
-/*  -moz-osx-font-smoothing: grayscale;*/
-/*  text-align: center;*/
-/*  color: #2c3e50;*/
-/*  margin-top: 60px;*/
-/*}*/
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 </style>
